@@ -78,7 +78,17 @@ void afisareVectorAeroporturi(struct Aeroport* aeroporturi, int dim)
 	}
 }
 
+void dezalocareVector(struct Aeroport** aeroporturi, int* dim)
+{
+	for (int i = 0; i < (*dim); i++)
+	{
+		free((*aeroporturi)[i].nume);
+	}
 
+	free(*aeroporturi);
+	(*aeroporturi) = NULL;
+	(*dim) = 0;
+}
 
 void main()
 {
